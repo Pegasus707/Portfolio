@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archit Surve - Portfolio</title>
     <style>
         body {
@@ -19,16 +21,34 @@
             overflow: hidden;
         }
         header {
-            background: #007BFF;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
             color: white;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
         header h1 {
             margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #555;
         }
         section {
-            padding: 20px;
+            padding: 40px 20px;
             border-bottom: 1px solid #e0e0e0;
         }
         section:last-child {
@@ -36,24 +56,50 @@
         }
         section h2 {
             color: #007BFF;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .project-item, .skill-item, .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        .project-item h3, .experience-item h3, .education-item h3 {
+            margin-top: 0;
+        }
+        .project-item a, .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .project-item a:hover, .contact-info a:hover {
+            color: #0056b3;
+        }
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        .progress-bar div {
+            height: 10px;
+            background: #007BFF;
         }
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 10px;
-            position: fixed;
+            padding: 20px;
+            position: relative;
             bottom: 0;
             width: 100%;
-            left: 0;
         }
-        .contact-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .contact-info p {
-            margin: 5px 0;
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            nav a {
+                margin: 0 5px;
+                padding: 5px 10px;
+            }
         }
     </style>
 </head>
@@ -62,15 +108,80 @@
         <header>
             <h1>Welcome to Archit Surve's Portfolio</h1>
         </header>
-        <section>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <section id="about">
             <h2>About Me</h2>
             <p>I am Archit Surve, a tech-savvy individual with a passion for technology and its applications. I am always on the lookout for the latest trends and developments in the tech world. My curiosity drives me to explore new technologies and learn how they can be used to solve real-world problems.</p>
         </section>
-        <section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-item">
+                <h3>Project Title 1</h3>
+                <p>Description of the project, technologies used, and achievements.</p>
+                <a href="link-to-project">View Project</a>
+            </div>
+            <div class="project-item">
+                <h3>Project Title 2</h3>
+                <p>Description of the project, technologies used, and achievements.</p>
+                <a href="link-to-project">View Project</a>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill-item">
+                    <p>HTML</p>
+                    <div class="progress-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p>CSS</p>
+                    <div class="progress-bar"><div style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p>JavaScript</p>
+                    <div class="progress-bar"><div style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p>Python</p>
+                    <div class="progress-bar"><div style="width: 65%;"></div></div>
+                </div>
+            </div>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Job Title 1</h3>
+                <p>Company Name | Duration</p>
+                <p>Responsibilities and achievements.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Job Title 2</h3>
+                <p>Company Name | Duration</p>
+                <p>Responsibilities and achievements.</p>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>BSc in Computer Science</h3>
+                <p>Kirti College | Year of Completion</p>
+                <p>Relevant coursework and achievements.</p>
+            </div>
+        </section>
+        <section id="contact">
             <h2>Contact Me</h2>
             <div class="contact-info">
                 <p>Email: <a href="mailto:architsurve82@gmail.com">architsurve82@gmail.com</a></p>
                 <p>Instagram: <a href="https://www.instagram.com/archit_surve_" target="_blank">@archit_surve_</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/architsurve" target="_blank">LinkedIn Profile</a></p>
+                <p>GitHub: <a href="https://github.com/architsurve" target="_blank">GitHub Profile</a></p>
             </div>
         </section>
         <footer>
