@@ -79,14 +79,14 @@
             border-radius: 5px;
             overflow: hidden;
             margin: 5px 0;
+            height: 10px; /* Added height for progress bar */
             position: relative;
         }
         .progress-bar div {
-            height: 10px;
+            height: 100%; /* Changed height to 100% to fill the progress bar */
+            width: 0; /* Ensure initial width is zero */
             background: #007BFF;
-            position: absolute;
-            top: 0;
-            left: 0;
+            transition: width 0.5s ease; /* Added transition for smooth width change */
         }
         footer {
             background: #333;
