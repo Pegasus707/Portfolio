@@ -13,6 +13,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
         .container {
             width: 80%;
@@ -32,6 +33,9 @@
             margin: 0;
             font-size: 3em;
             font-weight: 600;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInDown 1s forwards;
         }
         nav {
             display: flex;
@@ -65,11 +69,17 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInDown 1s forwards;
         }
         #about p {
             font-size: 1.2em;
             line-height: 1.8;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
         }
         .skill-item {
             margin-bottom: 20px;
@@ -104,6 +114,26 @@
             nav a {
                 margin: 0 5px;
                 padding: 5px 10px;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -165,5 +195,17 @@
             <p>© 2024 Archit Surve</p>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressBars = document.querySelectorAll('.progress-bar div');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
 </body>
 </html>
