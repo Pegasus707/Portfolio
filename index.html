@@ -9,8 +9,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #1a237e;
-            color: #ffffff;
+            background: #1a1a1a;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
@@ -18,14 +18,15 @@
         .container {
             width: 80%;
             margin: 20px auto;
-            background: #1e88e5;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background: #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             overflow: hidden;
+            color: #e0e0e0;
         }
         header {
-            background: linear-gradient(135deg, #0d47a1, #1565c0);
-            color: white;
+            background: linear-gradient(135deg, #282c37, #1a1d23);
+            color: #e0e0e0;
             padding: 60px 20px;
             text-align: center;
         }
@@ -40,11 +41,11 @@
         nav {
             display: flex;
             justify-content: center;
-            background: #0d47a1;
+            background: #282c37;
             padding: 10px 0;
         }
         nav a {
-            color: white;
+            color: #e0e0e0;
             text-decoration: none;
             margin: 0 15px;
             padding: 10px 20px;
@@ -53,12 +54,12 @@
             transition: background 0.3s, color 0.3s;
         }
         nav a:hover {
-            background: #1565c0;
+            background: #1a1d23;
             color: #fff;
         }
         section {
             padding: 40px 20px;
-            border-bottom: 1px solid #3f51b5;
+            border-bottom: 1px solid #444;
             opacity: 0;
             transform: translateY(50px);
             animation: fadeInUp 1s forwards;
@@ -68,7 +69,7 @@
             border-bottom: none;
         }
         section h2 {
-            color: #2196f3;
+            color: #4db8ff;
             font-size: 2em;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -84,13 +85,13 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s forwards;
-            animation-delay: 0.6s;
+            animation-delay: 0.5s;
         }
         .skill-item {
             margin-bottom: 20px;
         }
         .progress-bar {
-            background: #3f51b5;
+            background: #555;
             border-radius: 5px;
             overflow: hidden;
             margin: 5px 0;
@@ -100,12 +101,12 @@
         .progress-bar div {
             height: 100%;
             width: 0;
-            background: #2196f3;
+            background: #4db8ff;
             transition: width 0.5s ease;
         }
         footer {
-            background: #1a237e;
-            color: white;
+            background: #282c37;
+            color: #e0e0e0;
             text-align: center;
             padding: 20px;
             position: relative;
