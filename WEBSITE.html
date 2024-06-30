@@ -87,8 +87,19 @@
             animation: fadeInUp 1s forwards;
             animation-delay: 0.5s;
         }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
         .skill-item {
-            margin-bottom: 20px;
+            text-align: center;
+            width: 30%;
+        }
+        .skill-item h3 {
+            margin-bottom: 10px;
         }
         .progress-bar {
             background: #333;
@@ -103,6 +114,17 @@
             width: 0;
             background: #5d8aa8;
             transition: width 0.5s ease;
+        }
+        .cybersecurity {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            list-style-type: none;
+            padding-left: 0;
+            justify-content: space-around;
+        }
+        .cybersecurity li {
+            font-size: 1.2em;
         }
         footer {
             background: #000;
@@ -120,6 +142,9 @@
             nav a {
                 margin: 0 5px;
                 padding: 5px 10px;
+            }
+            .skills .skill-item {
+                width: 100%;
             }
         }
         @keyframes fadeInDown {
@@ -164,20 +189,16 @@
             <h2>Skills</h2>
             <div class="skills">
                 <div class="skill-item">
-                    <p>Premiere Pro</p>
+                    <h3>Editing Skills</h3>
                     <div class="progress-bar"><div style="width: 80%;"></div></div>
                 </div>
                 <div class="skill-item">
-                    <p>After Effects</p>
-                    <div class="progress-bar"><div style="width: 75%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <p>Light Room</p>
-                    <div class="progress-bar"><div style="width: 44%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <p>Alight Motion</p>
-                    <div class="progress-bar"><div style="width: 80%;"></div></div>
+                    <h3>Cybersecurity</h3>
+                    <ul class="cybersecurity">
+                        <li>Kali Linux</li>
+                        <li>Networking</li>
+                        <li>Firewall and IDS</li>
+                    </ul>
                 </div>
             </div>
         </section>
