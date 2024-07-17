@@ -9,27 +9,30 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #000;
-            color: #5d8aa8;
+            background: #1e1e1e; /* Dark gray background */
+            color: #f0f0f0; /* Light gray text */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
         }
+
         .container {
             width: 80%;
             margin: 20px auto;
-            background: #000;
+            background: #1e1e1e; /* Dark gray background */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            color: #5d8aa8;
+            color: #f0f0f0; /* Light gray text */
         }
+
         header {
-            background: linear-gradient(135deg, #000, #333);
-            color: #fff;
+            background: linear-gradient(135deg, #363636, #1e1e1e); /* Gradient background */
+            color: #fff; /* White text */
             padding: 60px 20px;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
             font-size: 3em;
@@ -38,14 +41,16 @@
             transform: translateY(-50px);
             animation: fadeInDown 1s forwards;
         }
+
         nav {
             display: flex;
             justify-content: center;
-            background: #000;
+            background: #1e1e1e; /* Dark gray background */
             padding: 10px 0;
         }
+
         nav a {
-            color: #5d8aa8;
+            color: #f0f0f0; /* Light gray text */
             text-decoration: none;
             margin: 0 15px;
             padding: 10px 20px;
@@ -53,23 +58,26 @@
             font-weight: 600;
             transition: background 0.3s, color 0.3s;
         }
+
         nav a:hover {
-            background: #333;
-            color: #fff;
+            background: #363636; /* Darker gray on hover */
         }
+
         section {
             padding: 40px 20px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #363636; /* Darker gray border */
             opacity: 0;
             transform: translateY(50px);
             animation: fadeInUp 1s forwards;
             animation-delay: 0.3s;
         }
+
         section:last-child {
             border-bottom: none;
         }
+
         section h2 {
-            color: #5d8aa8;
+            color: #f0f0f0; /* Light gray text */
             font-size: 2em;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -78,78 +86,72 @@
             transform: translateY(-50px);
             animation: fadeInDown 1s forwards;
         }
-        #about p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s forwards;
-            animation-delay: 0.5s;
-        }
-        .skills {
+
+        .projects {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .skill-item {
-            margin-bottom: 20px;
-            flex: 1 1 100%; /* Adjust width as needed */
+
+        .project-item {
+            background: #363636; /* Darker gray background */
+            color: #fff; /* White text */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            transition: transform 0.3s ease;
         }
-        .progress-bar {
-            background: #333;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 5px 0;
-            height: 10px;
-            position: relative;
+
+        .project-item:hover {
+            transform: translateY(-10px);
         }
-        .progress-bar div {
-            height: 100%;
-            width: 0;
-            background: #5d8aa8;
-            transition: width 0.5s ease;
-        }
-        .editing-skills ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .editing-skills ul li {
+
+        .project-item h3 {
+            font-size: 1.5em;
             margin-bottom: 10px;
         }
-        .cyber-security-skills {
-            flex: 1 1 100%; /* Adjust width as needed */
+
+        .project-item p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
-        .cyber-security-skills ul {
-            list-style-type: disc; /* Changed to bullets */
-            padding-left: 20px; /* Added left padding */
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
+
+        .project-link {
+            display: inline-block;
+            background: #5d8aa8; /* Blue accent */
+            color: #fff; /* White text */
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
         }
-        .cyber-security-skills ul li {
-            margin-right: 20px;
-            flex: 1 1 auto; /* Adjusted flex properties */
+
+        .project-link:hover {
+            background: #4a90e2; /* Darker blue on hover */
         }
+
         footer {
-            background: #000;
-            color: #5d8aa8;
+            background: #1e1e1e; /* Dark gray background */
+            color: #f0f0f0; /* Light gray text */
             text-align: center;
             padding: 20px;
             position: relative;
             bottom: 0;
             width: 100%;
         }
+
         @media (max-width: 768px) {
             .container {
                 width: 90%;
             }
+
             nav a {
                 margin: 0 5px;
                 padding: 5px 10px;
             }
         }
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -160,6 +162,7 @@
                 transform: translateY(0);
             }
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -169,6 +172,60 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Progress Bar Styles */
+        .progress-bar {
+            background: #363636; /* Darker gray background */
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 5px 0;
+            height: 10px;
+            position: relative;
+        }
+
+        .progress-bar div {
+            height: 100%;
+            width: 0;
+            background: #5d8aa8; /* Blue progress color */
+            transition: width 0.5s ease;
+        }
+
+        /* Cyber Security Skills Styles */
+        .cyber-security-skills ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .cyber-security-skills ul li {
+            margin-right: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Contact Section Styles */
+        .contact-info {
+            text-align: left; /* Aligning contact info to the left */
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #5d8aa8; /* Blue link color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #4a90e2; /* Darker blue on hover */
         }
     </style>
 </head>
@@ -181,6 +238,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
         <section id="about">
@@ -222,6 +280,21 @@
                 </div>
             </div>
         </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-item">
+                    <h3>Project 1: API Vulnerability Scanner</h3>
+                    <p>A tool to scan APIs for common vulnerabilities like SQL injection and XSS attacks.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-item">
+                    <h3>Project 2: Network Security Analyzer</h3>
+                    <p>Analyze network traffic for security threats and vulnerabilities using Python.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
@@ -239,38 +312,12 @@
             </div>
         </section>
         <footer>
-            <p>© 2024 Archit Surve</p>
+            <p>&copy; 2024 Archit Surve. All rights reserved.</p>
         </footer>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const progressBars = document.querySelectorAll('.progress-bar div');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
-            });
-            
-            const sections = document.querySelectorAll('section');
-            const options = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, options);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
+        // JavaScript animations or functionality can be added here if needed
     </script>
 </body>
 </html>
