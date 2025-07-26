@@ -3,321 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archit Surve - Portfolio</title>
+    
+    <title>Archit Surve - Cybersecurity Portfolio</title>
+    <meta name="description" content="The portfolio of Archit Surve, a cybersecurity student from Mumbai specializing in network security and vulnerability assessment.">
+    <meta name="author" content="Archit Surve">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>AS</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --background-color: #121212;
+            --container-bg: #1E1E1E;
+            --header-bg: #161616;
+            --card-bg: #242424;
+            --text-color: #EAEAEA;
+            --text-secondary: #B3B3B3;
+            --accent-color: #3399FF;
+            --border-color: #2c2c2c;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode {
+            --background-color: #f4f7f9;
+            --container-bg: #ffffff;
+            --header-bg: #f9f9f9;
+            --card-bg: #fdfdfd;
+            --text-color: #1a1a1a;
+            --text-secondary: #555;
+            --border-color: #e1e4e8;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #1e1e1e; /* Dark gray background */
-            color: #f0f0f0; /* Light gray text */
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
             width: 80%;
-            margin: 20px auto;
-            background: #1e1e1e; /* Dark gray background */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            max-width: 1100px;
+            margin: 30px auto;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             overflow: hidden;
-            color: #f0f0f0; /* Light gray text */
+            box-shadow: 0 8px 30px var(--shadow-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         header {
-            background: linear-gradient(135deg, #363636, #1e1e1e); /* Gradient background */
-            color: #fff; /* White text */
-            padding: 60px 20px;
+            padding: 60px 40px;
             text-align: center;
+            background-color: var(--container-bg);
+            transition: background-color 0.3s ease;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3em;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: fadeInDown 1s forwards;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--text-color);
         }
+
+        header .subtitle {
+            font-size: 1.4em;
+            color: var(--accent-color);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+        #theme-toggle:hover {
+            color: var(--text-color);
+            background-color: rgba(51, 153, 255, 0.1);
+        }
+        #theme-toggle .fa-sun { display: none; }
+        body.light-mode #theme-toggle .fa-sun { display: inline-block; }
+        body.light-mode #theme-toggle .fa-moon { display: none; }
+
 
         nav {
             display: flex;
             justify-content: center;
-            background: #1e1e1e; /* Dark gray background */
-            padding: 10px 0;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         nav a {
-            color: #f0f0f0; /* Light gray text */
+            color: var(--text-secondary);
             text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 20px;
-            border-radius: 5px;
+            margin: 5px 15px;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-weight: 600;
-            transition: background 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            background: #363636; /* Darker gray on hover */
+            color: var(--text-color);
+            background-color: rgba(51, 153, 255, 0.1);
         }
-
+        
         section {
-            padding: 40px 20px;
-            border-bottom: 1px solid #363636; /* Darker gray border */
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
-            animation-delay: 0.3s;
+            padding: 80px 40px;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
         }
-
-        section:last-child {
+        
+        section:last-of-type {
             border-bottom: none;
         }
 
-        section h2 {
-            color: #f0f0f0; /* Light gray text */
-            font-size: 2em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: fadeInDown 1s forwards;
-        }
-
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .project-item {
-            background: #363636; /* Darker gray background */
-            color: #fff; /* White text */
-            padding: 20px;
-            border-radius: 10px;
-            flex: 1 1 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-item h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .project-item p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .project-link {
-            display: inline-block;
-            background: #5d8aa8; /* Blue accent */
-            color: #fff; /* White text */
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .project-link:hover {
-            background: #4a90e2; /* Darker blue on hover */
-        }
-
-        footer {
-            background: #1e1e1e; /* Dark gray background */
-            color: #f0f0f0; /* Light gray text */
+        h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 50px;
             text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-
-            nav a {
-                margin: 0 5px;
-                padding: 5px 10px;
-            }
+        h3 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Progress Bar Styles */
-        .progress-bar {
-            background: #363636; /* Darker gray background */
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 5px 0;
-            height: 10px;
-            position: relative;
-        }
-
-        .progress-bar div {
-            height: 100%;
-            width: 0;
-            background: #5d8aa8; /* Blue progress color */
-            transition: width 0.5s ease;
-        }
-
-        /* Cyber Security Skills Styles */
-        .cyber-security-skills ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        
+        #about p { font-size: 1.1em; line-height: 1.9; color: var(--text-secondary); max-width: 750px; margin: 0 auto; text-align: center; }
+        #skills .skills-container { display: grid; grid-template-columns: 1fr; gap: 60px; }
+        .soft-skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .soft-skill { background-color: var(--card-bg); padding: 15px; text-align: center; border-radius: 8px; border: 1px solid var(--border-color); font-weight: 500; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .skills-list { list-style: none; padding: 0; }
+        .skills-list li { margin-bottom: 25px; }
+        .skills-list li p { margin: 0 0 10px 0; font-weight: 600; }
+        .skill-level-container { display: flex; align-items: center; gap: 15px; }
+        .skill-label { font-size: 0.8em; color: var(--text-secondary); flex-shrink: 0; }
+        .progress-bar { background-color: #333; border-radius: 6px; height: 10px; flex-grow: 1; overflow: hidden; }
+        body.light-mode .progress-bar { background-color: #e1e4e8; }
+        .progress-bar div { height: 100%; background-color: var(--accent-color); }
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--shadow-color); }
+        .card-content { flex-grow: 1; }
+        .card h3 { color: var(--accent-color); margin-top: 0; margin-bottom: 10px; font-weight: 600; font-size: 1.4em; }
+        .card p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+        .tech-tags { margin-bottom: 20px; }
+        .tech-tags span { display: inline-block; background-color: #333; color: var(--text-secondary); padding: 5px 10px; border-radius: 5px; font-size: 0.8em; margin: 2px; }
+        body.light-mode .tech-tags span { background-color: #eee; }
+        .project-links { margin-top: auto; display: flex; gap: 10px; }
+        .project-link { text-decoration: none; color: var(--accent-color); border: 1px solid var(--accent-color); padding: 8px 12px; border-radius: 6px; font-weight: 600; transition: all 0.3s; text-align: center; flex: 1; }
+        .project-link:hover { background-color: var(--accent-color); color: var(--container-bg); }
+        .project-link i { margin-right: 6px; }
+        .certification-list { list-style: none; padding: 0; max-width: 900px; margin: 0 auto; }
+        .certification-item { display: flex; align-items: center; justify-content: space-between; padding: 20px 15px; border-bottom: 1px solid var(--border-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .certification-item:last-child { border-bottom: none; }
+        .certification-item:hover { background-color: var(--card-bg); }
+        .cert-info { display: flex; align-items: center; }
+        .cert-info .fa-award { color: var(--accent-color); font-size: 1.8em; margin-right: 20px; }
+        .cert-details h3 { font-size: 1.1em; font-weight: 600; color: var(--text-color); margin: 0 0 5px; }
+        .cert-details p { margin: 0; color: var(--text-secondary); font-size: 0.9em; }
+        .cert-link { text-decoration: none; display: inline-block; background-color: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 8px 16px; border-radius: 6px; font-weight: 600; transition: background-color 0.3s, color 0.3s; }
+        .cert-link:hover { background-color: var(--accent-color); color: var(--container-bg); }
+        .education-item { text-align: center; background-color: var(--card-bg); padding: 30px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid var(--border-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .education-item h3 { margin: 0; color: var(--accent-color); font-weight: 600; }
+        .education-item p { margin: 5px 0 0 0; color: var(--text-secondary); font-size: 1.1em; }
+        #contact-form { max-width: 700px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .form-group textarea { resize: none; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); }
+        .submit-btn { display: block; width: 100%; padding: 15px; border: none; border-radius: 6px; background-color: var(--accent-color); color: #fff; font-weight: 600; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s; }
+        .submit-btn:hover { background-color: #287acc; }
+        .social-links { text-align: center; margin-top: 40px; }
+        .social-links a { color: var(--text-secondary); text-decoration: none; font-size: 1.5em; margin: 0 15px; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--accent-color); }
+        
+        footer {
+            background-color: var(--header-bg);
+            color: var(--text-secondary);
+            padding: 25px;
+            font-size: 0.9em;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .container { width: 95%; margin: 15px auto; }
+            header h1 { font-size: 2.2em; }
+            #theme-toggle { top: 15px; right: 15px; }
+            section { padding: 60px 20px; }
+            .certification-item { flex-direction: column; align-items: flex-start; gap: 15px; }
         }
 
-        .cyber-security-skills ul li {
-            margin-right: 20px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        /* Contact Section Styles */
-        .contact-info {
-            text-align: left; /* Aligning contact info to the left */
-            margin-top: 20px;
-        }
-
-        .contact-info p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .contact-info a {
-            color: #5d8aa8; /* Blue link color */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: #4a90e2; /* Darker blue on hover */
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Welcome to Archit Surve's Portfolio</h1>
+            <button id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            <h1>Archit Surve</h1>
+            <p class="subtitle">Cybersecurity & Technology Enthusiast</p>
         </header>
+
         <nav>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
         </nav>
+
         <section id="about">
             <h2>About Me</h2>
-            <p>I am Archit Surve, a tech-savvy individual with a passion for technology and its applications. I am always on the lookout for the latest trends and developments in the tech world. My curiosity drives me to explore new technologies and learn how they can be used to solve real-world problems.</p>
-            <p>In addition to my interest in technology, I am also a skilled video editor. I have experience using tools like Premiere Pro, After Effects, Light Room, and Alight Motion to create engaging and professional-quality videos.</p>
+            <p>I am a detail-oriented Computer Science student with a profound passion for cybersecurity. I am dedicated to understanding and mitigating digital threats through continuous learning and hands-on practice. My focus lies in identifying system vulnerabilities, securing networks, and developing robust security solutions to protect digital infrastructures.</p>
         </section>
+
         <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills">
-                <div class="skill-item editing-skills">
-                    <h3>Editing Skills</h3>
-                    <ul>
+            <h2>Skills & Abilities</h2>
+            <div class="skills-container">
+                <div class="technical-skills">
+                    <h3>Technical Skills</h3>
+                    <ul class="skills-list">
                         <li>
-                            <p>Premiere Pro</p>
-                            <div class="progress-bar"><div style="width: 80%;"></div></div>
+                            <p>Network Security & Protocols</p>
+                            <div class="skill-level-container">
+                                <span class="skill-label">Fundamental</span>
+                                <div class="progress-bar"><div style="width: 85%;"></div></div>
+                                <span class="skill-label">Advanced</span>
+                            </div>
                         </li>
                         <li>
-                            <p>After Effects</p>
-                            <div class="progress-bar"><div style="width: 75%;"></div></div>
+                            <p>Vulnerability Assessment & Penetration Testing</p>
+                            <div class="skill-level-container">
+                                <span class="skill-label">Fundamental</span>
+                                <div class="progress-bar"><div style="width: 75%;"></div></div>
+                                <span class="skill-label">Advanced</span>
+                            </div>
                         </li>
                         <li>
-                            <p>Light Room</p>
-                            <div class="progress-bar"><div style="width: 44%;"></div></div>
+                            <p>Web Application Security (OWASP Top 10)</p>
+                            <div class="skill-level-container">
+                                <span class="skill-label">Fundamental</span>
+                                <div class="progress-bar"><div style="width: 70%;"></div></div>
+                                <span class="skill-label">Advanced</span>
+                            </div>
                         </li>
                         <li>
-                            <p>Alight Motion</p>
-                            <div class="progress-bar"><div style="width: 80%;"></div></div>
+                            <p>Firewall & IDS/IPS Configuration</p>
+                            <div class="skill-level-container">
+                                <span class="skill-label">Fundamental</span>
+                                <div class="progress-bar"><div style="width: 80%;"></div></div>
+                                <span class="skill-label">Advanced</span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Linux Environments (Kali)</p>
+                            <div class="skill-level-container">
+                                <span class="skill-label">Fundamental</span>
+                                <div class="progress-bar"><div style="width: 90%;"></div></div>
+                                <span class="skill-label">Advanced</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
-                <div class="skill-item cyber-security-skills">
-                    <h3>Cyber Security Skills</h3>
-                    <ul>
-                        <li>Kali Linux</li>
-                        <li>Networking</li>
-                        <li>Firewall and IDS</li>
-                    </ul>
+                <div class="soft-skills">
+                    <h3>Soft Skills</h3>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill">Problem-Solving</div>
+                        <div class="soft-skill">Critical Thinking</div>
+                        <div class="soft-skill">Team Collaboration</div>
+                        <div class="soft-skill">Technical Documentation</div>
+                        <div class="soft-skill">Adaptability</div>
+                        <div class="soft-skill">Eagerness to Learn</div>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section id="projects">
             <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-item">
-                    <h3>Project 1: API Vulnerability Scanner</h3>
-                    <p>A tool to scan APIs for common vulnerabilities like SQL injection and XSS attacks.</p>
-                    <a href="#" class="project-link">View Project</a>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Ethical Keylogger in Python</h3>
+                        <p>A tool to capture and log keystrokes for educational purposes, demonstrating Python skills and system monitoring concepts.</p>
+                        <div class="tech-tags">
+                            <span>Python</span><span>pynput</span><span>Tkinter</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i>View Code</a>
+                        <a href="#" target="_blank" class="project-link"><i class="fas fa-book-open"></i>Case Study</a>
+                    </div>
                 </div>
-                <div class="project-item">
-                    <h3>Project 2: Network Security Analyzer</h3>
-                    <p>Analyze network traffic for security threats and vulnerabilities using Python.</p>
-                    <a href="#" class="project-link">View Project</a>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Network Traffic Analyzer</h3>
+                        <p>A script using Scapy to capture and analyze network packets in real-time, identifying protocols and potential threats.</p>
+                        <div class="tech-tags">
+                            <span>Python</span><span>Scapy</span><span>Networking</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i>View Code</a>
+                        <a href="#" target="_blank" class="project-link"><i class="fas fa-book-open"></i>Case Study</a>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
                 <h3>BSc in Computer Science</h3>
-                <p>Kirti College | 2023-2026</p>
+                <p>Kirti M. Doongursee College, Mumbai | 2023 - 2026</p>
             </div>
         </section>
+
+        <section id="certifications">
+            <h2>Licenses & Certifications</h2>
+            <ul class="certification-list">
+                <li class="certification-item">
+                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Cybersecurity Analyst Job Simulation</h3><p>Issued by Tata Group (Forage)</p></div></div>
+                    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_uqD3WiFCEhGYuTmmA_1746444899005_completion_certificate.pdf" target="_blank" class="cert-link">View Credential</a>
+                </li>
+                <li class="certification-item">
+                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Foundations of Cybersecurity</h3><p>Issued by Google</p></div></div>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/6DD4DPV2ZG2S" target="_blank" class="cert-link">View Credential</a>
+                </li>
+                <li class="certification-item">
+                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Artificial Intelligence Fundamentals</h3><p>Issued by IBM</p></div></div>
+                    <a href="https://www.credly.com/badges/7acbbd41-3114-4cef-8c40-4e8b30616169/public_url" target="_blank" class="cert-link">View Credential</a>
+                </li>
+                <li class="certification-item">
+                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>DevOps for Web Development</h3><p>Issued by DevTown</p></div></div>
+                    <a href="https://www.cert.devtown.in/verify/1cobhE" target="_blank" class="cert-link">View Credential</a>
+                </li>
+                <li class="certification-item">
+                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Google Developer Student Clubs</h3><p>Issued by DevTown</p></div></div>
+                    <a href="https://www.cert.devtown.in/verify/ZEdMsG" target="_blank" class="cert-link">View Credential</a>
+                </li>
+            </ul>
+        </section>
+
         <section id="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:architsurve82@gmail.com">architsurve82@gmail.com</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/archit_surve_" target="_blank">@archit_surve_</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/architsurve" target="_blank">LinkedIn Profile</a></p>
-                <p>GitHub: <a href="https://github.com/architsurve" target="_blank">GitHub Profile</a></p>
+            <h2>Get In Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/architsurve" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/architsurve" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:architsurve82@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </section>
+
         <footer>
-            <p>&copy; 2024 Archit Surve. All rights reserved.</p>
+            <p>© 2025 Archit Surve. All Rights Reserved.</p>
         </footer>
     </div>
 
     <script>
-        // JavaScript animations or functionality can be added here if needed
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- THEME TOGGLE LOGIC ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const applySavedTheme = () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'light') {
+                    body.classList.add('light-mode');
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                if (body.classList.contains('light-mode')) {
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    localStorage.removeItem('theme');
+                }
+            });
+            applySavedTheme();
+
+            // All JavaScript animation logic has been removed for maximum reliability.
+            // The portfolio is now static and robust.
+        });
     </script>
 </body>
 </html>
