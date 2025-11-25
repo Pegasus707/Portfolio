@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archit Surve - Software Engineer Portfolio</title>
+    <meta name="description" content="The portfolio of Archit Surve, a Software Engineer and Security Specialist.">
     
-    <title>Archit Surve - Cybersecurity Portfolio</title>
-    <meta name="description" content="The portfolio of Archit Surve, a cybersecurity student from Mumbai specializing in network security and vulnerability assessment.">
-    <meta name="author" content="Archit Surve">
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>AS</text></svg>">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -24,6 +22,7 @@
             --accent-color: #3399FF;
             --border-color: #2c2c2c;
             --shadow-color: rgba(0, 0, 0, 0.2);
+            --nav-blur: rgba(22, 22, 22, 0.85);
         }
 
         body.light-mode {
@@ -35,7 +34,10 @@
             --text-secondary: #555;
             --border-color: #e1e4e8;
             --shadow-color: rgba(0, 0, 0, 0.1);
+            --nav-blur: rgba(249, 249, 249, 0.85);
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -45,10 +47,11 @@
             padding: 0;
             scroll-behavior: smooth;
             transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
 
         .container {
-            width: 80%;
+            width: 85%;
             max-width: 1100px;
             margin: 30px auto;
             background-color: var(--container-bg);
@@ -57,30 +60,65 @@
             overflow: hidden;
             box-shadow: 0 8px 30px var(--shadow-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            position: relative;
         }
 
+        /* --- HEADER --- */
         header {
-            padding: 60px 40px;
+            padding: 80px 20px;
             text-align: center;
             background-color: var(--container-bg);
-            transition: background-color 0.3s ease;
             position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3.2em;
+            font-size: 3em;
             font-weight: 700;
             color: var(--text-color);
         }
 
         header .subtitle {
             font-size: 1.4em;
-            color: var(--accent-color);
-            margin-top: 5px;
-            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            font-weight: 500;
+            min-height: 1.5em;
         }
-        
+
+        .typewriter {
+            color: var(--accent-color);
+            font-weight: 600;
+            border-right: 2px solid var(--text-color);
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color) }
+        }
+
+        .header-buttons { margin-top: 30px; }
+        .resume-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .resume-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(51, 153, 255, 0.4);
+        }
+
         #theme-toggle {
             position: absolute;
             top: 20px;
@@ -88,30 +126,30 @@
             background: none;
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 1em;
+            font-size: 1.2em;
             cursor: pointer;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
+            z-index: 100;
         }
-        #theme-toggle:hover {
-            color: var(--text-color);
-            background-color: rgba(51, 153, 255, 0.1);
-        }
+        #theme-toggle:hover { color: var(--text-color); background-color: rgba(51, 153, 255, 0.1); }
         #theme-toggle .fa-sun { display: none; }
         body.light-mode #theme-toggle .fa-sun { display: inline-block; }
         body.light-mode #theme-toggle .fa-moon { display: none; }
 
-
+        /* --- GLASS NAV --- */
         nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--header-bg);
+            background-color: var(--nav-blur);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 15px 20px;
             position: sticky;
             top: 0;
@@ -130,22 +168,18 @@
             border-radius: 6px;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
         }
+        
+        nav a:hover { color: var(--text-color); background-color: rgba(51, 153, 255, 0.1); }
+        nav a.active-link { color: var(--accent-color); background-color: rgba(51, 153, 255, 0.15); }
 
-        nav a:hover {
-            color: var(--text-color);
-            background-color: rgba(51, 153, 255, 0.1);
-        }
-        
-        section {
-            padding: 80px 40px;
-            border-bottom: 1px solid var(--border-color);
-            transition: border-color 0.3s ease;
-        }
-        
-        section:last-of-type {
-            border-bottom: none;
-        }
+        section { padding: 80px 40px; border-bottom: 1px solid var(--border-color); }
+        section:last-of-type { border-bottom: none; }
+
+        /* --- SCROLL ANIMATION --- */
+        .hidden { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+        .show { opacity: 1; transform: translateY(0); }
 
         h2 {
             font-size: 2.2em;
@@ -157,270 +191,356 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
+        
+        h3 { font-size: 1.5em; font-weight: 600; color: var(--text-color); margin-bottom: 20px; }
+        #about p { font-size: 1.1em; line-height: 1.9; color: var(--text-secondary); max-width: 800px; margin: 0 auto; text-align: center; }
 
-        h3 {
-            font-size: 1.6em;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+        /* --- SKILLS --- */
+        #skills .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .skills-category { background-color: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); transition: transform 0.3s ease; }
+        .skills-category:hover { transform: translateY(-5px); }
+        .skills-category h3 { margin-top: 0; color: var(--accent-color); font-size: 1.3em; display: flex; align-items: center; gap: 10px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+        .skill-tag { background-color: rgba(51, 153, 255, 0.08); color: var(--text-color); border: 1px solid var(--accent-color); padding: 8px 16px; border-radius: 20px; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; }
+        .skill-tag:hover { background-color: var(--accent-color); color: #fff; }
+        body.light-mode .skill-tag { background-color: #f0f7ff; color: #333; }
+        body.light-mode .skill-tag:hover { background-color: var(--accent-color); color: #fff; }
+
+        /* --- 3D TILT CARDS --- */
+        .card-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            perspective: 1000px; /* Essential for 3D */
         }
         
-        #about p { font-size: 1.1em; line-height: 1.9; color: var(--text-secondary); max-width: 750px; margin: 0 auto; text-align: center; }
-        #skills .skills-container { display: grid; grid-template-columns: 1fr; gap: 60px; }
-        .soft-skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .soft-skill { background-color: var(--card-bg); padding: 15px; text-align: center; border-radius: 8px; border: 1px solid var(--border-color); font-weight: 500; transition: background-color 0.3s ease, border-color 0.3s ease; }
-        .skills-list { list-style: none; padding: 0; }
-        .skills-list li { margin-bottom: 25px; }
-        .skills-list li p { margin: 0 0 10px 0; font-weight: 600; }
-        .skill-level-container { display: flex; align-items: center; gap: 15px; }
-        .skill-label { font-size: 0.8em; color: var(--text-secondary); flex-shrink: 0; }
-        .progress-bar { background-color: #333; border-radius: 6px; height: 10px; flex-grow: 1; overflow: hidden; }
-        body.light-mode .progress-bar { background-color: #e1e4e8; }
-        .progress-bar div { height: 100%; background-color: var(--accent-color); }
-        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--shadow-color); }
-        .card-content { flex-grow: 1; }
+        .card { 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            padding: 25px; 
+            border-radius: 8px; 
+            display: flex; 
+            flex-direction: column; 
+            position: relative; /* For glare positioning */
+            transform-style: preserve-3d; /* Essential for 3D */
+            will-change: transform;
+            /* No default transition on transform to avoid lag during mousemove */
+        }
+        
+        /* Glare Effect */
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.05) 40%, transparent 60%);
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px;
+        }
+        .card:hover::after { opacity: 1; }
+
+        .card-content { flex-grow: 1; transform: translateZ(20px); /* Popping text effect */ }
         .card h3 { color: var(--accent-color); margin-top: 0; margin-bottom: 10px; font-weight: 600; font-size: 1.4em; }
         .card p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
         .tech-tags { margin-bottom: 20px; }
         .tech-tags span { display: inline-block; background-color: #333; color: var(--text-secondary); padding: 5px 10px; border-radius: 5px; font-size: 0.8em; margin: 2px; }
         body.light-mode .tech-tags span { background-color: #eee; }
-        .project-links { margin-top: auto; display: flex; gap: 10px; }
+        .project-links { margin-top: auto; display: flex; gap: 10px; transform: translateZ(20px); }
         .project-link { text-decoration: none; color: var(--accent-color); border: 1px solid var(--accent-color); padding: 8px 12px; border-radius: 6px; font-weight: 600; transition: all 0.3s; text-align: center; flex: 1; }
         .project-link:hover { background-color: var(--accent-color); color: var(--container-bg); }
-        .project-link i { margin-right: 6px; }
-        .certification-list { list-style: none; padding: 0; max-width: 900px; margin: 0 auto; }
-        .certification-item { display: flex; align-items: center; justify-content: space-between; padding: 20px 15px; border-bottom: 1px solid var(--border-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
-        .certification-item:last-child { border-bottom: none; }
-        .certification-item:hover { background-color: var(--card-bg); }
-        .cert-info { display: flex; align-items: center; }
-        .cert-info .fa-award { color: var(--accent-color); font-size: 1.8em; margin-right: 20px; }
-        .cert-details h3 { font-size: 1.1em; font-weight: 600; color: var(--text-color); margin: 0 0 5px; }
-        .cert-details p { margin: 0; color: var(--text-secondary); font-size: 0.9em; }
-        .cert-link { text-decoration: none; display: inline-block; background-color: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 8px 16px; border-radius: 6px; font-weight: 600; transition: background-color 0.3s, color 0.3s; }
-        .cert-link:hover { background-color: var(--accent-color); color: var(--container-bg); }
-        .education-item { text-align: center; background-color: var(--card-bg); padding: 30px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid var(--border-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
+
+        /* EDUCATION */
+        .education-item { text-align: center; background-color: var(--card-bg); padding: 30px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid var(--border-color); }
         .education-item h3 { margin: 0; color: var(--accent-color); font-weight: 600; }
         .education-item p { margin: 5px 0 0 0; color: var(--text-secondary); font-size: 1.1em; }
+
+        /* --- CERTIFICATIONS 3D --- */
+        .certification-list { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; 
+            list-style: none; 
+            padding: 0; 
+            perspective: 1000px;
+        }
+        
+        .certification-item { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            padding: 25px; 
+            border: 1px solid var(--border-color); 
+            background-color: var(--card-bg); 
+            border-radius: 8px; 
+            height: 100%; 
+            box-sizing: border-box; 
+            position: relative;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        
+        .certification-item::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.05) 40%, transparent 60%);
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px;
+        }
+        .certification-item:hover::after { opacity: 1; }
+        
+        .certification-item:hover { border-color: var(--accent-color); }
+        .cert-info { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; transform: translateZ(20px); }
+        .cert-info .fa-award { color: var(--accent-color); font-size: 2.2em; }
+        .cert-details h3 { font-size: 1.1em; font-weight: 600; color: var(--text-color); margin: 0 0 5px; }
+        .cert-details p { margin: 0; color: var(--text-secondary); font-size: 0.9em; }
+        .cert-link { text-decoration: none; display: block; width: 100%; text-align: center; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 10px 16px; border-radius: 6px; font-weight: 600; transition: all 0.3s; box-sizing: border-box; transform: translateZ(20px); }
+        .cert-link:hover { background-color: var(--accent-color); color: var(--container-bg); }
+
+        /* CONTACT & FOOTER */
         #contact-form { max-width: 700px; margin: 0 auto; }
         .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: background-color 0.3s ease, border-color 0.3s ease; }
-        .form-group textarea { resize: none; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: 0.3s; }
         .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); }
-        .submit-btn { display: block; width: 100%; padding: 15px; border: none; border-radius: 6px; background-color: var(--accent-color); color: #fff; font-weight: 600; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s; }
+        .submit-btn { display: block; width: 100%; padding: 15px; border: none; border-radius: 6px; background-color: var(--accent-color); color: #fff; font-weight: 600; font-size: 1.1em; cursor: pointer; transition: 0.3s; }
         .submit-btn:hover { background-color: #287acc; }
+        
         .social-links { text-align: center; margin-top: 40px; }
         .social-links a { color: var(--text-secondary); text-decoration: none; font-size: 1.5em; margin: 0 15px; transition: color 0.3s ease; }
         .social-links a:hover { color: var(--accent-color); }
         
-        footer {
-            background-color: var(--header-bg);
-            color: var(--text-secondary);
-            padding: 25px;
-            font-size: 0.9em;
+        footer { background-color: var(--header-bg); color: var(--text-secondary); padding: 25px; font-size: 0.9em; display: flex; justify-content: center; align-items: center; }
+
+        /* --- BACK TO TOP --- */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
         }
+        #back-to-top:hover { transform: translateY(-5px); background-color: #287acc; }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
         
         @media (max-width: 768px) {
             .container { width: 95%; margin: 15px auto; }
             header h1 { font-size: 2.2em; }
-            #theme-toggle { top: 15px; right: 15px; }
             section { padding: 60px 20px; }
-            .certification-item { flex-direction: column; align-items: flex-start; gap: 15px; }
+            #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
         }
-
     </style>
 </head>
 <body>
+    
+    <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
     <div class="container">
-        <header>
+        <header id="home">
             <button id="theme-toggle" title="Toggle theme">
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
             </button>
             <h1>Archit Surve</h1>
-            <p class="subtitle">Cybersecurity & Technology Enthusiast</p>
+            <p class="subtitle">I am a <span class="typewriter"></span></p>
+            <div class="header-buttons">
+                <a href="resume.pdf" target="_blank" class="resume-btn"><i class="fas fa-file-alt"></i> Download Resume</a>
+            </div>
         </header>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Contact</a>
+        <nav id="navbar">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#certifications" class="nav-link">Certifications</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
-        <section id="about">
+        <section id="about" class="hidden">
             <h2>About Me</h2>
-            <p>I am a detail-oriented Computer Science student with a profound passion for cybersecurity. I am dedicated to understanding and mitigating digital threats through continuous learning and hands-on practice. My focus lies in identifying system vulnerabilities, securing networks, and developing robust security solutions to protect digital infrastructures.</p>
+            <p>I am a Computer Science student with a focus on building robust, scalable, and secure software solutions. My expertise lies in backend development and network architecture, where I bridge the gap between functionality and security. I enjoy leveraging modern technologies to solve complex problems while ensuring data integrity and system resilience.</p>
         </section>
 
-        <section id="skills">
-            <h2>Skills & Abilities</h2>
+        <section id="skills" class="hidden">
+            <h2>Technical Proficiency</h2>
             <div class="skills-container">
-                <div class="technical-skills">
-                    <h3>Technical Skills</h3>
-                    <ul class="skills-list">
-                        <li>
-                            <p>Network Security & Protocols</p>
-                            <div class="skill-level-container">
-                                <span class="skill-label">Fundamental</span>
-                                <div class="progress-bar"><div style="width: 85%;"></div></div>
-                                <span class="skill-label">Advanced</span>
-                            </div>
-                        </li>
-                        <li>
-                            <p>Vulnerability Assessment & Penetration Testing</p>
-                            <div class="skill-level-container">
-                                <span class="skill-label">Fundamental</span>
-                                <div class="progress-bar"><div style="width: 75%;"></div></div>
-                                <span class="skill-label">Advanced</span>
-                            </div>
-                        </li>
-                        <li>
-                            <p>Web Application Security (OWASP Top 10)</p>
-                            <div class="skill-level-container">
-                                <span class="skill-label">Fundamental</span>
-                                <div class="progress-bar"><div style="width: 70%;"></div></div>
-                                <span class="skill-label">Advanced</span>
-                            </div>
-                        </li>
-                        <li>
-                            <p>Firewall & IDS/IPS Configuration</p>
-                            <div class="skill-level-container">
-                                <span class="skill-label">Fundamental</span>
-                                <div class="progress-bar"><div style="width: 80%;"></div></div>
-                                <span class="skill-label">Advanced</span>
-                            </div>
-                        </li>
-                        <li>
-                            <p>Linux Environments (Kali)</p>
-                            <div class="skill-level-container">
-                                <span class="skill-label">Fundamental</span>
-                                <div class="progress-bar"><div style="width: 90%;"></div></div>
-                                <span class="skill-label">Advanced</span>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Languages & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">HTML5 & CSS3</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
                 </div>
-                <div class="soft-skills">
-                    <h3>Soft Skills</h3>
-                    <div class="soft-skills-grid">
-                        <div class="soft-skill">Problem-Solving</div>
-                        <div class="soft-skill">Critical Thinking</div>
-                        <div class="soft-skill">Team Collaboration</div>
-                        <div class="soft-skill">Technical Documentation</div>
-                        <div class="soft-skill">Adaptability</div>
-                        <div class="soft-skill">Eagerness to Learn</div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-server"></i> Infrastructure & Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux Administration</span>
+                        <span class="skill-tag">Network Architecture (TCP/IP)</span>
+                        <span class="skill-tag">Git & Version Control</span>
+                        <span class="skill-tag">Cloud Concepts</span>
+                        <span class="skill-tag">Firewall Configuration</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Secure Software Design</span>
+                        <span class="skill-tag">OWASP Top 10</span>
+                        <span class="skill-tag">Cryptography (AES)</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">Penetration Testing</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                        <span class="skill-tag">Agile Collaboration</span>
+                        <span class="skill-tag">Critical Thinking</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
+        <section id="projects" class="hidden">
+            <h2>Featured Projects</h2>
             <div class="card-container">
                 <div class="card">
                     <div class="card-content">
-                        <h3>Password Security Tool</h3>
-                        <p>A comprehensive tool built with HTML, CSS, and JavaScript to generate strong, random passwords and assess the strength of existing ones, promoting better security habits.</p>
+                        <h3>Password Strength Analyzer</h3>
+                        <p>A responsive <strong>web application</strong> designed to analyze string entropy and generate complex character sequences. Built using vanilla <strong>JavaScript</strong> for logic processing and <strong>CSS Grid</strong> for a responsive UI.</p>
                         <div class="tech-tags">
-                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Security</span>
+                            <span>JavaScript</span><span>DOM Manipulation</span><span>UI/UX</span><span>Algorithm Design</span>
                         </div>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Pegasus707/Password-Security-Tool" target="_blank" class="project-link"><i class="fab fa-github"></i>View Code</a>
+                        <a href="https://github.com/Pegasus707/Password-Security-Tool" target="_blank" class="project-link"><i class="fab fa-github"></i>Source Code</a>
                         <a href="https://pegasus707.github.io/Password-Security-Tool/" target="_blank" class="project-link"><i class="fas fa-eye"></i>Live Demo</a>
                     </div>
                 </div>
-                
-            <div class="card">
-                <div class="card-content">
-                    <h3>Fintech Fraud Detector</h3>
-                    <p>An intelligent fraud detection system built with Python and machine learning techniques. It analyzes transaction patterns to identify potentially fraudulent activities, improving fintech security and trust.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>Machine Learning</span><span>Scikit-Learn</span><span>Pandas</span><span>Data Analysis</span>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Predictive Fraud Detection System</h3>
+                        <p>An intelligent <strong>Machine Learning</strong> model that processes transaction datasets to identify anomalies. Utilized <strong>Pandas</strong> for data cleaning and <strong>Scikit-Learn</strong> to train the classification algorithm.</p>
+                        <div class="tech-tags">
+                            <span>Python</span><span>Scikit-Learn</span><span>Pandas</span><span>Data Engineering</span><span>ML</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Pegasus707/fintech-fraud-detector/" target="_blank" class="project-link"><i class="fab fa-github"></i>Source Code</a>
                     </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/Pegasus707/fintech-fraud-detector/" target="_blank" class="project-link"><i class="fab fa-github"></i>View Code</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <h3>Digital Safe Steganography</h3>
-                    <p>A modern desktop app to hide secret, encrypted files inside ordinary images. It uses LSB steganography and AES encryption to ensure data is both hidden and secure.</p>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>CustomTkinter</span>
-                        <span>Cryptography</span>
-                        <span>Steganography</span>
-                        <span>Pillow</span>
-                        <span>GUI Design</span>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Secure Image Steganography App</h3>
+                        <p>A desktop GUI application developed with <strong>Python</strong> that implements <strong>AES encryption</strong> and LSB algorithms. It allows users to manipulate image data at the binary level for secure transmission.</p>
+                        <div class="tech-tags">
+                            <span>Python</span><span>CustomTkinter</span><span>Cryptography</span><span>Binary Manipulation</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Pegasus707/Digital-Safe-Steganography" target="_blank" class="project-link"><i class="fab fa-github"></i>Source Code</a>
                     </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/Pegasus707/Digital-Safe-Steganography" target="_blank" class="project-link"><i class="fab fa-github"></i>View Code</a>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-        <section id="education">
+        <section id="education" class="hidden">
             <h2>Education</h2>
             <div class="education-item">
                 <h3>BSc in Computer Science</h3>
                 <p>University of Mumbai | 2023 - 2026</p>
+                <p style="font-size: 0.9em; margin-top: 10px;">Relevant Coursework: Data Structures, Database Management, Network Security.</p>
             </div>
         </section>
 
-        <section id="certifications">
+        <section id="certifications" class="hidden">
             <h2>Licenses & Certifications</h2>
             <ul class="certification-list">
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Cybersecurity Analyst Job Simulation</h3><p>Issued by Tata Group (Forage)</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Cybersecurity Analyst Job Simulation</h3><p>Issued by Tata Group (Forage)</p></div>
+                    </div>
                     <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_uqD3WiFCEhGYuTmmA_1746444899005_completion_certificate.pdf" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Foundations of Cybersecurity</h3><p>Issued by Google</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Foundations of Cybersecurity</h3><p>Issued by Google</p></div>
+                    </div>
                     <a href="https://www.coursera.org/account/accomplishments/certificate/6DD4DPV2ZG2S" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Fintech: Foundation</h3><p>Issued by Wharton University</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Fintech: Foundation</h3><p>Issued by Wharton University</p></div>
+                    </div>
                     <a href="https://www.coursera.org/account/accomplishments/certificate/CZ1XLOJX2JZK" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Product Management</h3><p>Issued by IBM</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Product Management</h3><p>Issued by IBM</p></div>
+                    </div>
                     <a href="https://www.coursera.org/account/accomplishments/certificate/Y0M05AIE0T5S" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Solving Problems with Creative and Critical Thinking</h3><p>Issued by IBM</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Critical Thinking & Problem Solving</h3><p>Issued by IBM</p></div>
+                    </div>
                     <a href="https://www.coursera.org/account/accomplishments/certificate/7V88U0X6F3OK" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Artificial Intelligence Fundamentals</h3><p>Issued by IBM</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>AI Fundamentals</h3><p>Issued by IBM</p></div>
+                    </div>
                     <a href="https://www.credly.com/badges/7acbbd41-3114-4cef-8c40-4e8b30616169/public_url" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>DevOps for Web Development</h3><p>Issued by DevTown</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>DevOps for Web</h3><p>Issued by DevTown</p></div>
+                    </div>
                     <a href="https://www.cert.devtown.in/verify/1cobhE" target="_blank" class="cert-link">View Credential</a>
                 </li>
                 <li class="certification-item">
-                    <div class="cert-info"><i class="fas fa-award"></i><div class="cert-details"><h3>Google Developer Student Clubs</h3><p>Issued by DevTown</p></div></div>
+                    <div class="cert-info">
+                        <i class="fas fa-award"></i>
+                        <div class="cert-details"><h3>Developer Student Clubs</h3><p>Issued by DevTown</p></div>
+                    </div>
                     <a href="https://www.cert.devtown.in/verify/ZEdMsG" target="_blank" class="cert-link">View Credential</a>
                 </li>
             </ul>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="hidden">
             <h2>Get In Touch</h2>
-            <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xyzalwga" method="POST">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
@@ -432,11 +552,11 @@
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
-<div class="social-links">
-    <a href="https://www.linkedin.com/in/archit-surve/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/Pegasus707" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="mailto:architsurve82@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/archit-surve/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Pegasus707" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:architsurve82@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
         </section>
 
         <footer>
@@ -446,29 +566,148 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- THEME TOGGLE LOGIC ---
+            
+            // 1. THEME TOGGLE (SAFE MODE)
             const themeToggle = document.getElementById('theme-toggle');
             const body = document.body;
-            const applySavedTheme = () => {
+            try {
                 const savedTheme = localStorage.getItem('theme');
                 if (savedTheme === 'light') {
                     body.classList.add('light-mode');
                 }
-            };
-            themeToggle.addEventListener('click', () => {
-                body.classList.toggle('light-mode');
-                if (body.classList.contains('light-mode')) {
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    localStorage.removeItem('theme');
-                }
-            });
-            applySavedTheme();
+            } catch (e) { console.log('LS access denied'); }
 
+            if(themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('light-mode');
+                    try {
+                        if (body.classList.contains('light-mode')) {
+                            localStorage.setItem('theme', 'light');
+                        } else {
+                            localStorage.removeItem('theme');
+                        }
+                    } catch(e) {}
+                });
+            }
+
+            // 2. SCROLL REVEAL
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+
+            // 3. TYPEWRITER EFFECT
+            const textElement = document.querySelector('.typewriter');
+            const phrases = ["Software Engineer.", "Security-Focused Developer.", "Python Specialist.", "Problem Solver."];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+
+            function type() {
+                if(!textElement) return;
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 50; 
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100; 
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000; 
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 500; 
+                }
+                setTimeout(type, typeSpeed);
+            }
+            if(textElement) type();
+
+
+            // 4. BACK TO TOP & ACTIVE NAV (SCROLL SPY)
+            const backToTopBtn = document.getElementById('back-to-top');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                // Back to top visibility
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+
+                // Scroll Spy
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active-link');
+                    }
+                });
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 5. 3D TILT EFFECT
+            const tiltElements = document.querySelectorAll('.card, .certification-item');
+            
+            tiltElements.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Max rotation: 10 degrees
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+
+                    // Apply Transform
+                    // Note: perspective is handled by the container in CSS for better compatibility
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transition = 'transform 0.5s ease'; // Smooth snap back
+                    card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+                });
+
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'none'; // Instant response on enter
+                });
+            });
+
+            // 6. CONSOLE SIGNATURE
+            console.log(
+                "%cHello! Looking for vulnerabilities? 😉\n%cCheck out my code: https://github.com/Pegasus707", 
+                "color: #3399FF; font-size: 20px; font-weight: bold;", 
+                "color: #b3b3b3; font-size: 14px;"
+            );
 
         });
     </script>
 </body>
 </html>
-
-
