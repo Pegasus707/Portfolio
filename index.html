@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archit Surve - Software Engineer Portfolio</title>
-    <meta name="description" content="The portfolio of Archit Surve, a Software Engineer and Security Specialist.">
+    <title>Archit Surve - Frontend & Security Developer</title>
+    <meta name="description" content="The portfolio of Archit Surve, a Frontend Developer and Security Specialist.">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>AS</text></svg>">
@@ -14,6 +14,7 @@
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
 
         :root {
             --background-color: #121212;
@@ -90,6 +91,7 @@
         }
 
         .typewriter {
+            font-family: 'Fira Code', monospace;
             color: var(--accent-color);
             font-weight: 600;
             border-right: 2px solid var(--text-color);
@@ -366,13 +368,10 @@
             <p class="subtitle">I am a <span class="typewriter"></span></p>
             <div class="header-buttons">
                 <!-- 
-                   UPDATED RESUME SECTION:
-                   1. This link now points to "Archit_Surve_Resume.pdf"
-                   2. The "download" attribute is removed so it opens in a new tab first.
-                   
-                   IMPORTANT: Rename your actual PDF file to "Archit_Surve_Resume.pdf"
+                   RESUME LINK:
+                   Points to Google Drive link.
                 -->
-                <a href="Archit_Surve_Resume.pdf" target="_blank" class="resume-btn"><i class="fas fa-file-alt"></i> View Resume</a>
+                <a href="https://drive.google.com/file/d/1mFCxWWBVUPQrLJwWAZPRfkecye4zN1CF/view?usp=drive_link" target="_blank" class="resume-btn"><i class="fas fa-file-alt"></i> View Resume</a>
             </div>
         </header>
 
@@ -387,30 +386,21 @@
 
         <section id="about" class="hidden">
             <h2>About Me</h2>
-            <p>I am a Computer Science student with a focus on building robust, scalable, and secure software solutions. My expertise lies in backend development and network architecture, where I bridge the gap between functionality and security. I enjoy leveraging modern technologies to solve complex problems while ensuring data integrity and system resilience.</p>
+            <p>I am a Computer Science student with a dual focus on crafting exceptional frontend experiences and ensuring robust cybersecurity. My expertise lies in building interactive, user-centric web applications using React and TypeScript, while integrating secure software design principles. I bridge the gap between stunning visual interfaces and resilient, secure system architectures, creating applications that are both beautiful and bulletproof.</p>
         </section>
 
         <section id="skills" class="hidden">
             <h2>Technical Proficiency</h2>
             <div class="skills-container">
                 <div class="skills-category">
-                    <h3><i class="fas fa-code"></i> Languages & Development</h3>
+                    <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript (ES6+)</span>
-                        <span class="skill-tag">HTML5 & CSS3</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Machine Learning</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3><i class="fas fa-server"></i> Infrastructure & Systems</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Linux Administration</span>
-                        <span class="skill-tag">Network Architecture (TCP/IP)</span>
-                        <span class="skill-tag">Git & Version Control</span>
-                        <span class="skill-tag">Cloud Concepts</span>
-                        <span class="skill-tag">Firewall Configuration</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Tailwind CSS</span>
                     </div>
                 </div>
                 <div class="skills-category">
@@ -421,6 +411,16 @@
                         <span class="skill-tag">Cryptography (AES)</span>
                         <span class="skill-tag">Vulnerability Assessment</span>
                         <span class="skill-tag">Penetration Testing</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-server"></i> Backend & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Linux Administration</span>
+                        <span class="skill-tag">Network Architecture</span>
+                        <span class="skill-tag">Git & Version Control</span>
                     </div>
                 </div>
                 <div class="skills-category">
@@ -437,6 +437,38 @@
 
         <section id="projects" class="hidden">
             <h2>Featured Projects</h2>
+
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8em; color: var(--accent-color);"><i class="fas fa-laptop-code"></i> Frontend Projects</h3>
+            <div class="card-container" style="margin-bottom: 60px;">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>WashAi</h3>
+                        <p>A premium AI-powered Laundry Point of Sale (POS) <strong>web application</strong> featuring a high-end SaaS-style interface, dark mode, glassmorphism, and a robust order management system.</p>
+                        <div class="tech-tags">
+                            <span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>UI/UX</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Pegasus707/WashAi" target="_blank" class="project-link"><i class="fab fa-github"></i>Source Code</a>
+                        <a href="https://wash-ai.vercel.app/" target="_blank" class="project-link"><i class="fas fa-eye"></i>Live Demo</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>B3Volleyball</h3>
+                        <p>A dynamic, high-performance <strong>website</strong> tailored for a volleyball organization. Built for full mobile responsiveness and an engaging user experience with premium UX enhancements.</p>
+                        <div class="tech-tags">
+                            <span>React</span><span>Vite</span><span>CSS3</span><span>Frontend</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Pegasus707/B3Volleyball" target="_blank" class="project-link"><i class="fab fa-github"></i>Source Code</a>
+                        <a href="https://b3-volleyball.vercel.app/" target="_blank" class="project-link"><i class="fas fa-eye"></i>Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8em; color: var(--accent-color);"><i class="fas fa-shield-alt"></i> Cybersecurity & Backend</h3>
             <div class="card-container">
                 <div class="card">
                     <div class="card-content">
@@ -615,7 +647,7 @@
 
             // 3. TYPEWRITER EFFECT
             const textElement = document.querySelector('.typewriter');
-            const phrases = ["Software Engineer.", "Security-Focused Developer.", "Python Specialist.", "Problem Solver."];
+            const phrases = ["Frontend Developer.", "Cybersecurity Enthusiast.", "React & TypeScript Specialist.", "Security-Focused Engineer."];
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
